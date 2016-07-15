@@ -16,7 +16,7 @@
 @implementation LoginViewController
 
 
-NSString *scopes = @"offline_access https://graph.microsoft.com/User.ReadBasic.All";
+NSString *scopes = @"openid offline_access https://graph.microsoft.com/User.ReadBasic.All";
 NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
