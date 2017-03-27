@@ -1,6 +1,6 @@
 ---
 services: active-directory
-platforms: iOS
+platforms: ios
 author: dadobali
 ---
 
