@@ -1,7 +1,7 @@
 ---
 services: active-directory
 platforms: ios
-author: dadobali
+author: danieldobalian
 ---
 
 **NOTE regarding iOS 9:**
