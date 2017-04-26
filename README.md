@@ -1,8 +1,10 @@
 ---
 services: active-directory
 platforms: ios
-author: danieldobalian
+author: xerners
 ---
+
+# An iOS task application with Azure AD v2.0 using third party libraries
 
 **NOTE regarding iOS 9:**
 
