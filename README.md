@@ -1,7 +1,7 @@
 ---
 services: active-directory
 platforms: ios
-author: xerners
+author: brandwe
 ---
 
 # An iOS task application with Azure AD v2.0 using third party libraries
