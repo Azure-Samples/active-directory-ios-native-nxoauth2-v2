@@ -12,13 +12,14 @@
 #import "NXOAuth2.h"
 #import "AppData.h"
 #import "LoginViewController.h"
-#import "GraphAPICaller.h"
+#import "graphAPICaller.h"
 
 @implementation MasterViewController
 
 @synthesize upnArray;
 @synthesize upnSearchBar;
 @synthesize filteredUpnArray;
+
 
 
 
@@ -46,6 +47,7 @@
             [self.navigationController pushViewController:userSelectController animated:YES];
         });
         }
+    
 
 
     
@@ -123,7 +125,7 @@ if (searchText.length > 0) {
     
 
     
-        [GraphAPICaller searchUserList:searchText completionBlock:^(NSMutableArray* returnedUpns, NSError* error) {
+        [graphAPICaller searchUserList:searchText completionBlock:^(NSMutableArray* returnedUpns, NSError* error) {
             if (returnedUpns) {
                 
                 
@@ -168,5 +170,6 @@ if (searchText.length > 0) {
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
+
 
 @end

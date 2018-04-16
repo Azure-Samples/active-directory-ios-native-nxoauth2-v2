@@ -10,7 +10,7 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface MasterViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong,nonatomic) NSMutableArray *upnArray;

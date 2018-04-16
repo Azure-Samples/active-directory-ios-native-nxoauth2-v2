@@ -16,7 +16,7 @@
 @implementation LoginViewController
 
 
-NSString *scopes = @"openid offline_access https://graph.microsoft.com/User.Read";
+NSString *scopes = @"openid offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/User.Read.All https://graph.microsoft.com/Directory.Read.All https://graph.microsoft.com/Directory.AccessAsUser.All";
 NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -114,8 +114,6 @@ NSURL *authcode;
 
 
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
-    
-    AppData* data = [AppData getInstance];
     
     //parse the response for success or failure
      if (accessResult)

@@ -7,7 +7,7 @@
 //  Copyright (c) 2015 Microsoft. All rights reserved.
 //
 
-@interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
+@interface graphAPICaller : NSObject<NSURLConnectionDataDelegate>
 
 +(void) searchUserList:(NSString*)searchString
        completionBlock:(void (^) (NSMutableArray*, NSError* error))completionBlock;

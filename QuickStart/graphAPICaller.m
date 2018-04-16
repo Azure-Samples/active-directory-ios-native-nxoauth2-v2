@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GraphAPICaller.h"
+#import "graphAPICaller.h"
 #import "AppData.h"
 #import "NSDictionary+UrlEncoding.h"
 #import "User.h"
 #import "NXOAuth2.h"
 
-@implementation GraphAPICaller
+@implementation graphAPICaller
 
 bool loadedApplicationSettings;
 
@@ -50,14 +50,13 @@ bool loadedApplicationSettings;
     [NXOAuth2Request performMethod:@"GET"
                         onResource:[NSURL URLWithString:graphURL]
                    usingParameters:params
-                       withAccount:accounts[0]
+                       withAccount:accounts.lastObject
                sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal) {
                    // e.g., update a progress indicator
                }
                    responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error) {
                        // Process the response
                        if (responseData) {
-                           NSError *error;
                            NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
                            NSLog(@"Graph Response was: %@", dataReturned);
                            
