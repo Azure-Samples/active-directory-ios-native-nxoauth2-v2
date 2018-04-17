@@ -10,6 +10,7 @@
 
 @interface AppData : NSObject
 
+@property (strong) NSString* scopes;
 @property (strong) NSString* graphApiUrlString;
 @property (strong) NSString* authority;
 @property (strong) NSString* clientId;

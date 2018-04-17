@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>scopes</key>
+	<string>openid offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/User.Read.All https://graph.microsoft.com/Directory.Read.All https://graph.microsoft.com/Directory.AccessAsUser.All</string>
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/common</string>
 	<key>clientId</key>

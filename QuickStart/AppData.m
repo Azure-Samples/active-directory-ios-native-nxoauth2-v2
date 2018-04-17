@@ -19,6 +19,7 @@
         instance = [[self alloc] init];
         
         NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
+        instance.scopes = [dictionary objectForKey:@"scopes"];
         instance.clientId = [dictionary objectForKey:@"clientId"];
         instance.authority = [dictionary objectForKey:@"authority"];
         instance.resourceId = [dictionary objectForKey:@"resourceString"];
