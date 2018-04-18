@@ -1,32 +1,24 @@
----
-services: active-directory
-platforms: ios
+--- 
+Services: active-directory
+platforms: iOS
 author: brandwe
+level: 100
+client: iOS Mobile App
+service: Microsoft Graph
+endpoint: AAD V2
 ---
 
 # An iOS Microsoft Graph API application with Azure AD v2.0 using third party libraries
 
+## Scenario
 
-----
+This app is a multi-tenant app meaning it can be used by any Azure AD tenant or Microsoft Account.  It demonstrates Azure AD's OAuth2 stanbdards compliance by demonstrating how a developer can use a third party library to build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
+![Topology](./images/topology.png)
 
+## Steps to Run
 
-## *1. Determine what your Redirect URI will be for iOS*
-
-In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
-
-The iOS format for a Redirect URI is:
-
-```
-<app-scheme>://<bundle-id>
-```
-
-- 	**aap-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
-- 	**bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
-
-An example for this QuickStart code would be: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
-
-## *2. Register your application*
+1. Register your application
 To enable your app to get tokens, you'll first need to register it in your Azure AD tenant.
 
 1. Sign in to the [Microsoft Developer Registration Protal](https://apps.dev.microsoft.com/).
@@ -36,7 +28,7 @@ To enable your app to get tokens, you'll first need to register it in your Azure
 5. Find the Application ID value and copy it to the clipboard. You will need this to configure your application. 
 
 
-## *3. Install & Configure NXOAuth2*
+2. Install & Configure NXOAuth2
 Now that you have an application in Azure AD, you can install the third party library and write your identity-related code.  In order for the third party library to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
 -	Begin by adding the third party library to the QuickStart project using Cocapods.
 
@@ -69,7 +61,7 @@ $ open QuickStart.xcworkspace
     -   The `scopes` are the scopes that you will need to send to the identity service to access the Microsoft Graph API resources. Since this QuickStart will query the organizational directory on your behalf, you'll want Delegated Permissions of `Directory.Read.All` `User.Read.All`, as well as the default OAuth2 scopes `openid` and `offline_access`. Note that if you were using our Microsoft Authentication Library these default scopes would be sent for you. More information about Microsoft Graph API permissions [can be read here](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
     
 
-## *4.	Use Third Party Library to Get Tokens from AAD*
+3.	Use Third Party Library to Get Tokens from AAD
 We recommend you visit the Third Party LIbrary README for more information on how to use the library to call OAuth2 identity providers. You can find our particular implementation in `LoginViewController.m\h`
 
 ```ObjC
@@ -176,13 +168,51 @@ We recommend you visit the Third Party LIbrary README for more information on ho
 ```
 
 
-## Step 5: Build and Run the application
+4. Build and Run the application
 
 
 
 Congratulations! You now have a working iOS application using a third party library that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your QuickStart app, and sign in with one of those users.  Search for other users based on their UPN.  Close the app, and re-run it.  Notice how the user's session remains intact.
 
-For additional resources, check out:
-- [AzureADSamples on GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+## Feedback, Community Help, and Support
+
+We use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) with the community to 
+provide support. We highly recommend you ask your questions on Stack Overflow first and browse 
+existing issues to see if someone has asked your question before. 
+
+If you find and bug or have a feature request, please raise the issue 
+on [GitHub Issues](../../issues). 
+
+To provide a recommendation, visit 
+our [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
+
+## Contribute
+
+We enthusiastically welcome contributions and feedback. You can clone the repo and start 
+contributing now. Read our [Contribution Guide](Contributing.md) for more information.
+
+This project has adopted the 
+[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
+For more information see 
+the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact 
+[opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Security Library
+
+This library controls how users sign-in and access services. We recommend you always take the 
+latest version of our library in your app when possible. We 
+use [semantic versioning](http://semver.org) so you can control the risk associated with updating 
+your app. As an example, always downloading the latest minor version number (e.g. x.*y*.x) ensures 
+you get the latest security and feature enhanements but our API surface remains the same. You 
+can always see the latest version and release notes under the Releases tab of GitHub.
+
+## Security Reporting
+
+If you find a security issue with our libraries or services please report it 
+to [secure@microsoft.com](mailto:secure@microsoft.com) with as much detail as possible. Your 
+submission may be eligible for a bounty through the [Microsoft Bounty](http://aka.ms/bugbounty) 
+program. Please do not post security issues to GitHub Issues or any other public site. We will 
+contact you shortly upon receiving the information. We encourage you to get notifications of when 
+security incidents occur by 
+visiting [this page](https://technet.microsoft.com/en-us/security/dd252948) and subscribing 
+to Security Advisory Alerts.
