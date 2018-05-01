@@ -15,19 +15,18 @@
 
 @implementation LoginViewController
 
-
-NSString *scopes = @"openid offline_access https://graph.microsoft.com/User.Read https://graph.microsoft.com/User.Read.All https://graph.microsoft.com/Directory.Read.All https://graph.microsoft.com/Directory.AccessAsUser.All";
 NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 NSString *loginURL = @"https://login.microsoftonline.com/common/login";
-NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
 NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
 NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
+NSString *codeFlow = @"?code=";
 static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
 NSURL *myRequestedUrl;
 NSURL *myLoadedUrl;
 bool loginFlow = FALSE;
 bool isRequestBusy;
 NSURL *authcode;
+NSString *bhh;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,6 +57,7 @@ NSURL *authcode;
 
 - (void)resolveUsingUIWebView:(NSURL *)URL {
     
+    
     // We get the auth token from a redirect so we need to handle that in the webview.
     
     if (![NSThread isMainThread]) {
@@ -73,6 +73,11 @@ NSURL *authcode;
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    AppData* data = [AppData getInstance];
+    
+    bhh = [NSString stringWithFormat:@"%@%@", data.redirectUriString, codeFlow];
+    
     
     NSLog(@"webView:shouldStartLoadWithRequest: %@ (%li)", request.URL, (long)navigationType);
     
@@ -119,7 +124,7 @@ NSURL *authcode;
      if (accessResult)
     //if success, complete the OAuth2 flow by handling the redirect URL and obtaining a token
      {
-         [[NXOAuth2AccountStore sharedStore] handleRedirectURL:accessResult];
+         [[NXOAuth2AccountStore sharedStore] handleRedirectURL:[NSURL URLWithString:accessResult]];
     } else {
         //start over
         [self requestOAuth2Access];
@@ -128,12 +133,13 @@ NSURL *authcode;
 
 - (void)setupOAuth2AccountStore {
     
+    
 
         AppData* data = [AppData getInstance];
     
     [[NXOAuth2AccountStore sharedStore] setClientID:data.clientId
                                              secret:data.secret
-                                              scope:[NSSet setWithObject:scopes]
+                                              scope:[NSSet setWithObject:data.scopes]
                                    authorizationURL:[NSURL URLWithString:authURL]
                                            tokenURL:[NSURL URLWithString:tokenURL]
                                         redirectURL:[NSURL URLWithString:data.redirectUriString]
