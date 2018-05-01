@@ -129,7 +129,7 @@ if (searchText.length > 0) {
             if (returnedUpns) {
                 
                 
-                upnArray = returnedUpns;
+                self->upnArray = returnedUpns;
                 
                 
             }
