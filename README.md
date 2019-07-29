@@ -5,10 +5,10 @@ author: brandwe
 level: 100
 client: iOS Mobile App
 service: Microsoft Graph
-endpoint: AAD V2
+endpoint: Microsoft identity platform
 ---
 
-# An iOS Microsoft Graph API application with Azure AD v2.0 using third party libraries
+# An iOS Microsoft Graph API application with Microsoft identity platform using third party libraries
 
 ## Scenario
 
