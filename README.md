@@ -6,13 +6,21 @@ level: 100
 client: iOS Mobile App
 service: Microsoft Graph
 endpoint: AAD V2
+page_type: sample
+languages:
+  - objc  
+products:
+  - azure
+  - azure-active-directory  
+  - office-ms-graph
+description: "Describes how to use a third party authentication library to authenticate users and call call Microsoft Graph."
 ---
 
 # An iOS Microsoft Graph API application with Azure AD v2.0 using third party libraries
 
 ## Scenario
 
-This app is a multi-tenant app meaning it can be used by any Azure AD tenant or Microsoft Account.  It demonstrates Azure AD's OAuth2 stanbdards compliance by demonstrating how a developer can use a third party library to build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
+This app is a multi-tenant app meaning it can be used by any Azure AD tenant or Microsoft Account.  It demonstrates Azure AD's OAuth2 standards compliance by demonstrating how a developer can use a third party library to build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
 ![Topology](./images/iosintro.png)
 
