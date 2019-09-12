@@ -1,19 +1,12 @@
---- 
-Services: active-directory
-platforms: iOS
-author: brandwe
-level: 100
-client: iOS Mobile App
-service: Microsoft Graph
-endpoint: AAD V2
+---
 page_type: sample
 languages:
-  - objc  
+- obj
+- ruby
 products:
-  - azure
-  - azure-active-directory  
-  - office-ms-graph
-description: "Describes how to use a third party authentication library to authenticate users and call call Microsoft Graph."
+- azure
+description: "This app is a multi-tenant app meaning it can be used by any Azure AD tenant or Microsoft Account."
+urlFragment: active-directory-ios-native-nxoauth2-v2
 ---
 
 # An iOS Microsoft Graph API application with Azure AD v2.0 using third party libraries
