@@ -1,7 +1,7 @@
 ---
 page_type: sample
 languages:
-- obj
+- objc
 - ruby
 products:
 - azure
