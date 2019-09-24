@@ -59,7 +59,7 @@ $ open QuickStart.xcworkspace
     -	The `redirectUri` is the redirect url you registered in the portal.
     -   The `graphAPI` is the Graph API we will be calling in the QuickStart. Here it is http://graph.microsoft.com
     -   The `api-version` is the API version of the Microsoft Graph API you wish to call.
-    -   The `scopes` are the scopes that you will need to send to the identity service to access the Microsoft Graph API resources. Since this QuickStart will query the organizational directory on your behalf, you'll want Delegated Permissions of `Directory.Read.All` `User.Read.All`, as well as the default OAuth2 scopes `openid` and `offline_access`. Note that if you were using our Microsoft Authentication Library these default scopes would be sent for you. More information about Microsoft Graph API permissions [can be read here](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+    -   The `scopes` are the scopes that you will need to send to the identity service to access the Microsoft Graph API resources. Since this QuickStart will query the organizational directory on your behalf, you'll want Delegated Permissions of `Directory.Read.All` `User.Read.All`, as well as the default OAuth2 scopes `openid` and `offline_access`. Note that if you were using our Microsoft Authentication Library these default scopes would be sent for you. More information about Microsoft Graph API permissions [can be read here](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
     
 
 3.	Use Third Party Library to Get Tokens from AAD
