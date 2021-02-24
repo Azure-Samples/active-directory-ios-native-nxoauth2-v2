@@ -22,7 +22,7 @@ This app is a multi-tenant app meaning it can be used by any Azure AD tenant or 
 1. Register your application
 To enable your app to get tokens, you'll first need to register it in your Azure AD tenant.
 
-1. Sign in to the [Microsoft Developer Registration Protal](https://apps.dev.microsoft.com/).
+1. Sign in to the [Microsoft Developer Registration Portal](https://apps.dev.microsoft.com/).
 2. Click on **Add An App** in the right corner.
 3. Enter a friendly name for the application, for example 'DirectorySearcher'
 4. Press **Add Platform** and select 'Native' as the Application Type. You will receive an updated set of fields that includes your **Redirect Uri**. The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Since this is a third party library, you can use the built-in Reply URI of `urn:ietf:wg:oauth:2.0:oob`
